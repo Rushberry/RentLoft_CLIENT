@@ -8,6 +8,9 @@ import {
 import Root from './components/Root';
 import ErrorPage from './components/ErrorPage';
 import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import AuthProvider from './providers/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -22,13 +25,23 @@ const router = createBrowserRouter([
       {
         path: '/home',
         element: <Home></Home>
-      }
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
+      },
     ]
   },
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )
