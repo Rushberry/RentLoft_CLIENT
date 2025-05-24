@@ -11,6 +11,9 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import AuthProvider from './providers/AuthProvider';
+import Apartments from './pages/Apartments';
+import Dashboard from './pages/dashboard';
+import AccessProvider from './providers/AccessProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +37,14 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register></Register>
       },
+      {
+        path: '/apartments',
+        element: <Apartments></Apartments>
+      },
+      {
+        path: '/dashboard',
+        element: <AccessProvider><Dashboard></Dashboard></AccessProvider>
+      }
     ]
   },
 ]);

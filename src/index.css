@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active {
+    background: black;
+    color: white;
+}
+
+#bars .active {
+    background: white;
+    color: black;
+}
+#dash .active {
+    background: white;
+    color: black;
+}
