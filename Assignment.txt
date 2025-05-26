@@ -1,0 +1,5 @@
+Admin email: instructor@programming-hero.com
+Admin password: ProgrammingHero
+Front-end Live Site Link: rentloft.surge.sh
+Client Side Github Repository Link: https://github.com/Rushberry/RentLoft_CLIENT
+Server Side Github Repository Link: https://github.com/Rushberry/RentLoft_SERVER
