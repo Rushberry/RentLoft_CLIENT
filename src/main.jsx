@@ -49,12 +49,13 @@ const router = createBrowserRouter([
         path: '/apartments',
         element: <Apartments></Apartments>
       },
-      {
-        path: '/dashboard',
-        element: <AccessProvider><Dashboard></Dashboard></AccessProvider>
-      }
     ]
   },
+  {
+    path: '/dashboard',
+    element: <AccessProvider><Dashboard></Dashboard></AccessProvider>,
+    errorElement: <ErrorPage></ErrorPage>,
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(

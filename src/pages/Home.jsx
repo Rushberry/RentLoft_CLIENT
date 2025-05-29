@@ -12,7 +12,7 @@ const Home = () => {
     const { data: coupons = [] } = useQuery({
         queryKey: ['coupons'],
         queryFn: async () => {
-            const response = await fetch('/src/assets/coupons.json');
+            const response = await fetch(`${import.meta.env.VITE_serverApiLink}/coupons`);
             toast.success('Loaded All Coupons', {
                 position: "top-right",
                 autoClose: 2000,
@@ -130,14 +130,10 @@ const Home = () => {
             <h1 className='lg:text-4xl md:text-3xl text-xl text-left font-medium  mt-4 '>Special Offers</h1>
             <div className='w-11/12 mt-4 flex justify-center items-center flex-wrap gap-4'>
                 {
-                    coupons?.map((coupon, idx) =>
-                        <div key={idx} className="relative w-full max-w-md bg-gradient-to-r from-gray-900 to-black text-white rounded-[1.5rem] px-6 py-4 shadow-lg flex justify-between items-center">
-                            {/* <!-- Left Notch --> */}
+                    coupons?.map((coupon) =>
+                        <div key={coupon?._id} className="relative w-full max-w-md bg-gradient-to-r from-gray-900 to-black text-white rounded-[1.5rem] px-6 py-4 shadow-lg flex justify-between items-center">
                             <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full z-10"></div>
-
-                            {/* <!-- Right Notch --> */}
                             <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full z-10"></div>
-
                             <div>
                                 <p className="text-3xl font-bold">{coupon?.discount}% OFF</p>
                                 <p className="text-lg mt-2">{coupon?.description}</p>
