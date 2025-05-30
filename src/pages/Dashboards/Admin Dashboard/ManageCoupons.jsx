@@ -90,7 +90,7 @@ const ManageCoupons = () => {
                     <form className='flex flex-col w-full justify-center items-center mt-2 gap-3' onSubmit={handleAddCoupon}>
                         <input type="text" name='couponCode' placeholder='Coupon Code' className='w-full px-3 rounded-md border border-black py-2 font-medium text-xl' required />
                         <input type="number" name='discount' placeholder='Discount Percentage' className='w-full px-3 rounded-md border border-black py-2 font-medium text-xl' required />
-                        <input type="text" name='description' placeholder='Description' className='w-full px-3 rounded-md border border-black py-2 font-medium text-xl' required />
+                        <input type="text" name='description' placeholder='Coupon Description' className='w-full px-3 rounded-md border border-black py-2 font-medium text-xl' required />
                         <button type='submit' className="px-3 py-1 w-full rounded-md bg-black border text-white border-white font-medium  hover:bg-white hover:text-black text-xl" >Submit</button>
                     </form>
                     <div className="modal-action">

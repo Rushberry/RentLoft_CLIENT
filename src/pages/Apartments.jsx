@@ -118,6 +118,9 @@ const Apartments = () => {
     const { user } = useContext(AuthContext)
 
     const handleAgreement = e => {
+        const today = new Date();
+
+        const formattedDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
         if (user) {
             const data = {
                 name: user?.displayName,
@@ -126,8 +129,8 @@ const Apartments = () => {
                 block: e?.block,
                 apartmentNo: e?.apartmentNo,
                 rent: e?.rent,
-                status: "pending"
-
+                status: "pending",
+                requestDate: formattedDate
             }
             axios.post(`${import.meta.env.VITE_serverApiLink}/apartmentRent`, data)
                 .then(res => {

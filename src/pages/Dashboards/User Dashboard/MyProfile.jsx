@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { FaBuildingColumns, FaCircleUser } from 'react-icons/fa6';
 import { AuthContext } from '../../../providers/AuthProvider';
 import axios from 'axios';
@@ -11,8 +11,10 @@ import { toast, ToastContainer } from 'react-toastify';
 const MyProfile = () => {
     const { user } = useContext(AuthContext)
     const [role, setRole] = useState('')
+    const [info, setInfo] = useState({})
     const data = { email: user.email };
     const toastShownRef = useRef(false);
+    const toastShownRef2 = useRef(false);
     axios.post(`${import.meta.env.VITE_serverApiLink}/checkRole`, data)
         .then(res => {
             const data = res?.data?.role;
@@ -32,6 +34,28 @@ const MyProfile = () => {
                 toastShownRef.current = true;
             }
         })
+    useEffect(() => {
+        if (role === 'Member') {
+            const data = { email: user.email };
+            axios.post(`${import.meta.env.VITE_serverApiLink}/apartmentRentInfo`, data)
+                .then(res => {
+                    // console.log(res.data)
+                    setInfo(res.data)
+                    if (!toastShownRef2.current) {
+                        toast.success(`Loaded ${role} Details`, {
+                            position: "top-right",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                            closeOnClick: false,
+                            pauseOnHover: false,
+                            theme: "light",
+
+                        })
+                        toastShownRef.current = true;
+                    }
+                })
+        }
+    }, [role])
     return (
         <div className='lg:ml-[300px] flex flex-col items-center w-full min-h-screen px-4 py-6 bg-white'>
             <h1 className='lg:text-4xl md:text-3xl text-xl text-center font-medium flex justify-center items-center gap-2 mt-9'> <FaCircleUser /> My Profile</h1>
@@ -44,15 +68,27 @@ const MyProfile = () => {
                     <p className='text-white bg-black px-3 py-1  rounded-full'>{user?.email}</p>
                 </div>
                 <div className="flex w-11/12 px-3 py-2 rounded-xl flex-col bg-black text-white">
-                    <h3 className='text-md flex gap-1 justify-center items-center'> <FaFileSignature /> Agreement Accept Date: None</h3>
-                    <div className="flex justify-between w-full items-center">
-                        <h3 className='text-md flex gap-1 justify-center items-center'><span className='flex gap-1 justify-center items-center font-medium'><FaBuildingColumns />Floor:</span> None</h3>
-                        <h3 className='text-md flex gap-1 justify-center items-center'><span className='flex gap-1 justify-center items-center font-medium'><FaBuilding />Block:</span> None</h3>
-                    </div>
-                    <div className="flex justify-between w-full items-center">
-                        <h3 className='text-md flex gap-1 justify-center items-center'><span className='flex gap-1 justify-center items-center font-medium'><SiCodeblocks />Apartment No:</span> None</h3>
-                        <h3 className='text-md flex gap-0.5 justify-center items-center'><span className='flex gap-0.5 justify-center items-center font-medium'><TbCurrencyTaka />Rent:</span> None</h3>
-                    </div>
+                    {role === 'Member' ? <>
+                        <h3 className='text-md flex gap-1 justify-center items-center'> <FaFileSignature /> Agreement Accept Date: {info?.acceptDate}</h3>
+                        <div className="flex justify-between w-full items-center">
+                            <h3 className='text-md flex gap-1 justify-center items-center'><span className='flex gap-1 justify-center items-center font-medium'><FaBuildingColumns />Floor:</span> {info?.floor}</h3>
+                            <h3 className='text-md flex gap-1 justify-center items-center'><span className='flex gap-1 justify-center items-center font-medium'><FaBuilding />Block:</span> {info?.block}</h3>
+                        </div>
+                        <div className="flex justify-between w-full items-center">
+                            <h3 className='text-md flex gap-1 justify-center items-center'><span className='flex gap-1 justify-center items-center font-medium'><SiCodeblocks />Apartment No:</span> {info?.apartmentNo}</h3>
+                            <h3 className='text-md flex gap-0.5 justify-center items-center'><span className='flex gap-0.5 justify-center items-center font-medium'><TbCurrencyTaka />Rent:</span> {info?.rent}</h3>
+                        </div>
+                    </> : <>
+                        <h3 className='text-md flex gap-1 justify-center items-center'> <FaFileSignature /> Agreement Accept Date: None</h3>
+                        <div className="flex justify-between w-full items-center">
+                            <h3 className='text-md flex gap-1 justify-center items-center'><span className='flex gap-1 justify-center items-center font-medium'><FaBuildingColumns />Floor:</span> None</h3>
+                            <h3 className='text-md flex gap-1 justify-center items-center'><span className='flex gap-1 justify-center items-center font-medium'><FaBuilding />Block:</span> None</h3>
+                        </div>
+                        <div className="flex justify-between w-full items-center">
+                            <h3 className='text-md flex gap-1 justify-center items-center'><span className='flex gap-1 justify-center items-center font-medium'><SiCodeblocks />Apartment No:</span> None</h3>
+                            <h3 className='text-md flex gap-0.5 justify-center items-center'><span className='flex gap-0.5 justify-center items-center font-medium'><TbCurrencyTaka />Rent:</span> None</h3>
+                        </div>
+                    </>}
                 </div>
             </div>
         </div>
