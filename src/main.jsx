@@ -17,8 +17,13 @@ import AccessProvider from './providers/AccessProvider.jsx';
 import {
   QueryClient,
   QueryClientProvider,
-  useQuery,
 } from '@tanstack/react-query'
+import UserDashboard from './pages/Dashboards/UserDashboard.jsx';
+import AdminDashboard from './pages/Dashboards/AdminDashboard.jsx';
+import MemberDashboard from './pages/Dashboards/MemberDashboard.jsx';
+import DashboardAccessProvider from './providers/DashboardAccessProvider.jsx';
+import Announcement from './pages/Dashboards/User Dashboard/Announcement.jsx';
+import MyProfile from './pages/Dashboards/User Dashboard/MyProfile.jsx';
 
 const queryClient = new QueryClient()
 
@@ -54,8 +59,19 @@ const router = createBrowserRouter([
   {
     path: '/dashboard',
     element: <AccessProvider><Dashboard></Dashboard></AccessProvider>,
-    errorElement: <ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: 'user/announcements',
+        element:  <Announcement></Announcement>
+      },
+      {
+        path: 'user/myProfile',
+        element: <MyProfile></MyProfile>
+      }
+    ]
   }
+
 ]);
 
 createRoot(document.getElementById('root')).render(
