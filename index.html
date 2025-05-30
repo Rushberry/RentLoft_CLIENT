@@ -63,7 +63,18 @@
       margin: 0;
     }
 
-    
+    textarea {
+      resize: none;
+    }
+
+    textarea::-webkit-resizer {
+      display: none;
+    }
+
+    /* Modal Full Screen */
+    :root:has(:is(.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open])) {
+      scrollbar-gutter: unset;
+    }
   </style>
   <title>Rent Loft</title>
 </head>

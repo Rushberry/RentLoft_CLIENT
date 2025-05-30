@@ -24,6 +24,11 @@ import MemberDashboard from './pages/Dashboards/MemberDashboard.jsx';
 import DashboardAccessProvider from './providers/DashboardAccessProvider.jsx';
 import Announcement from './pages/Dashboards/User Dashboard/Announcement.jsx';
 import MyProfile from './pages/Dashboards/User Dashboard/MyProfile.jsx';
+import AdminProfile from './pages/Dashboards/Admin Dashboard/AdminProfile.jsx';
+import MakeAnnouncement from './pages/Dashboards/Admin Dashboard/MakeAnnouncement.jsx';
+import ManageMembers from './pages/Dashboards/Admin Dashboard/ManageMembers.jsx';
+import AgreementRequests from './pages/Dashboards/Admin Dashboard/AgreementRequests.jsx';
+import ManageCoupons from './pages/Dashboards/Admin Dashboard/ManageCoupons.jsx';
 
 const queryClient = new QueryClient()
 
@@ -61,13 +66,36 @@ const router = createBrowserRouter([
     element: <AccessProvider><Dashboard></Dashboard></AccessProvider>,
     errorElement: <ErrorPage />,
     children: [
+      // Users
       {
-        path: 'user/announcements',
+        path: 'announcements',
         element:  <Announcement></Announcement>
       },
       {
-        path: 'user/myProfile',
+        path: 'myProfile',
         element: <MyProfile></MyProfile>
+      },
+      // Members
+      // Admins
+      {
+        path: 'adminProfile',
+        element: <AdminProfile></AdminProfile>
+      },
+      {
+        path: 'manageMembers',
+        element: <ManageMembers></ManageMembers>
+      },
+      {
+        path: 'makeAnnouncement',
+        element: <MakeAnnouncement></MakeAnnouncement>
+      },
+      {
+        path: 'agreementRequests',
+        element: <AgreementRequests></AgreementRequests>
+      },
+      {
+        path: 'manageCoupons',
+        element: <ManageCoupons></ManageCoupons>
       }
     ]
   }

@@ -19,9 +19,9 @@ const Dashboard = () => {
       .then(res => {
         const role = res.data?.role;
         const redirectMap = {
-          admin: '/dashboard/admin',
-          member: '/dashboard/member',
-          user: '/dashboard/user/myProfile',
+          admin: '/dashboard/adminProfile',
+          member: '/dashboard/myProfile',
+          user: '/dashboard/myProfile',
         };
         if (redirectMap[role]) {
           navigate(redirectMap[role]);

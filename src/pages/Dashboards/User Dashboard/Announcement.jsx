@@ -20,7 +20,7 @@ const Announcement = () => {
         },
     })
     return (
-        <div className='lg:ml-[200px] w-full min-h-screen px-4 py-6 bg-white'>
+        <div className='lg:ml-[300px] w-full min-h-screen px-4 py-6 bg-white'>
             <h1 className='lg:text-4xl md:text-3xl text-xl text-center font-medium flex justify-center items-center gap-2 mt-9'> <FaInbox /> Announcements</h1>
             <ToastContainer></ToastContainer>
             <div className="flex flex-col-reverse gap-2 mt-3 pb-5">

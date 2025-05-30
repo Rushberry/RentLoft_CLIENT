@@ -8,7 +8,7 @@ import { TbCurrencyTaka } from 'react-icons/tb';
 import { toast, ToastContainer } from 'react-toastify';
 
 
-const MyProfile = () => {
+const AdminProfile = () => {
     const { user } = useContext(AuthContext)
     const [role, setRole] = useState('')
     const data = { email: user.email };
@@ -33,7 +33,7 @@ const MyProfile = () => {
             }
         })
     return (
-        <div className='lg:ml-[300px] flex flex-col items-center w-full min-h-screen px-4 py-6 bg-white'>
+        <div className='lg:ml-[200px] flex flex-col items-center w-full min-h-screen px-4 py-6 bg-white'>
             <h1 className='lg:text-4xl md:text-3xl text-xl text-center font-medium flex justify-center items-center gap-2 mt-9'> <FaCircleUser /> My Profile</h1>
             <ToastContainer></ToastContainer>
             <div className="flex flex-col  mt-14 h-[280px] lg:h-[280px] items-center justify-end gap-2 border border-black rounded-xl w-[400px] relative pb-5">
@@ -59,4 +59,4 @@ const MyProfile = () => {
     );
 };
 
-export default MyProfile;
+export default AdminProfile;
