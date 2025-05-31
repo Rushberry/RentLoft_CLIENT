@@ -33,7 +33,7 @@ A modern and responsive Building Management System (BMS) designed to handle apar
 - 🧑‍💼 **Admin Controls:** Manage members, approve requests, create coupons, and more.
 - 📣 **Announcements:** Admins can post announcements visible to all users.
 - 📱 **Fully Responsive:** Optimized for mobile, tablet, and desktop screens.
-- 💬 **Toast & Alerts:** SweetAlert and Toastify used instead of browser alerts.
+- 💬 **Toast & Alerts:** React Toastify used instead of browser alerts.
 - 🔎 **Search + Pagination:** Search apartments by rent range and paginate listings.
 - 🔐 **Environment Security:** Firebase and MongoDB keys are hidden using `.env`.
 
