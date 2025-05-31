@@ -66,7 +66,7 @@ const Login = () => {
             })
     }
     return (
-        <div className="py-[80px] bg-[url('/src/assets/bg.jpg')] bg-center flex justify-center items-center h-auto bg-cover bg-no-repeat">
+        <div className="py-[80px] bg-[url('/assets/bg.jpg')] bg-center flex justify-center items-center h-auto bg-cover bg-no-repeat">
             <ToastContainer></ToastContainer>
             <div className="w-full bg-transparent backdrop-blur-md border border-white rounded-3xl mt-12 mx-4 md:mt-0 sm:max-w-md xl:p-0">
                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">

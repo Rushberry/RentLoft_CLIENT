@@ -32,7 +32,7 @@ const Navbar = () => {
     return (
         <div className="bg-white border-b border-black flex flex-col">
             <nav className="py-2 px-3 flex flex-row justify-between items-center">
-                <img src="/src/assets/Logo.png" alt="Rent Loft" className="w-[105px] mt-1" />
+                <img src="/assets/Logo.png" alt="Rent Loft" className="w-[105px] mt-1" />
                 <div className="text-black lg:flex hidden">{navLinks}</div>
                 {
                     user ?

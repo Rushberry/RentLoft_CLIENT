@@ -63,7 +63,7 @@ const Home = () => {
             <div className="carousel  w-11/12 rounded-3xl border border-black" >
                 <div className={`carousel-item ${slider === 1 ? 'block' : 'hidden'} relative w-full`}>
                     <img
-                        src="/src/assets/Flat1.png"
+                        src="/assets/Flat1.png"
                         className="w-full" />
                     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                         <button onClick={() => slideTo(slider - 1)} className="bg-black hover:bg-black p-3 rounded-full text-white shadow-sm border border-black"><FaChevronLeft size={18} /></button>
@@ -72,7 +72,7 @@ const Home = () => {
                 </div>
                 <div className={`carousel-item ${slider === 2 ? 'block' : 'hidden'} relative w-full`}>
                     <img
-                        src="/src/assets/Flat2.png"
+                        src="/assets/Flat2.png"
                         className="w-full" />
                     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                         <button onClick={() => slideTo(slider - 1)} className="bg-black hover:bg-black p-3 rounded-full text-white shadow-sm border border-black"><FaChevronLeft size={18} /></button>
@@ -81,7 +81,7 @@ const Home = () => {
                 </div>
                 <div className={`carousel-item ${slider === 3 ? 'block' : 'hidden'} relative w-full`}>
                     <img
-                        src="/src/assets/Flat3.png"
+                        src="/assets/Flat3.png"
                         className="w-full" />
                     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                         <button onClick={() => slideTo(slider - 1)} className="bg-black hover:bg-black p-3 rounded-full text-white shadow-sm border border-black"><FaChevronLeft size={18} /></button>
@@ -90,7 +90,7 @@ const Home = () => {
                 </div>
                 <div className={`carousel-item ${slider === 4 ? 'block' : 'hidden'} relative w-full`}>
                     <img
-                        src="/src/assets/Flat4.png"
+                        src="/assets/Flat4.png"
                         className="w-full" />
                     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                         <button onClick={() => slideTo(slider - 1)} className="bg-black hover:bg-black p-3 rounded-full text-white shadow-sm border border-black"><FaChevronLeft size={18} /></button>
@@ -99,7 +99,7 @@ const Home = () => {
                 </div>
                 <div className={`carousel-item ${slider === 5 ? 'block' : 'hidden'} relative w-full`}>
                     <img
-                        src="/src/assets/Flat5.png"
+                        src="/assets/Flat5.png"
                         className="w-full" />
                     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                         <button onClick={() => slideTo(slider - 1)} className="bg-black hover:bg-black p-3 rounded-full text-white shadow-sm border border-black"><FaChevronLeft size={18} /></button>
@@ -108,7 +108,7 @@ const Home = () => {
                 </div>
                 <div className={`carousel-item ${slider === 6 ? 'block' : 'hidden'} relative w-full`}>
                     <img
-                        src="/src/assets/Flat6.png"
+                        src="/assets/Flat6.png"
                         className="w-full" />
                     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                         <button onClick={() => slideTo(slider - 1)} className="bg-black hover:bg-black p-3 rounded-full text-white shadow-sm border border-black"><FaChevronLeft size={18} /></button>
@@ -123,7 +123,7 @@ const Home = () => {
                 <p className='text-white mb-5'>
                     <span className="font-style text-black bg-white px-2 py-0 rounded">Rent Loft</span>  is a <span className="font-style text-black bg-white px-2 py-0 rounded">modern</span> residential building designed for <span className="font-style text-black bg-white px-2 py-0 rounded">comfort</span> and convenience. With <span className="font-style text-black bg-white px-2 py-0 rounded">smart</span> features, secure access, and stylish spaces, it’s the perfect place for professionals, students, and small families. Located in a <span className="font-style text-black bg-white px-2 py-0 rounded">prime</span> area with all essentials nearby, Rent Loft brings you smart <span className="font-style text-black bg-white px-2 py-0 rounded">living</span> in the heart of the city.
                 </p>
-                <img src="/src/assets/building.jpg" alt="Rent Loft Building" className='rounded-2xl' />
+                <img src="/assets/building.jpg" alt="Rent Loft Building" className='rounded-2xl' />
             </div>
             {/* Special Offers */}
             <ToastContainer></ToastContainer>

@@ -64,7 +64,7 @@ const SideBar = () => {
                         <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
                         <ul id="sidebar" className="menu bg-black min-h-full w-80 p-4 flex flex-col gap-3 items-center">
                             {/* Sidebar content here */}
-                            <img src="/src/assets/LogoWhite.png" alt="Rent Loft" className='w-7/12 mt-4' />
+                            <img src="/assets/LogoWhite.png" alt="Rent Loft" className='w-7/12 mt-4' />
                             <div id="sidebar" className="flex flex-col gap-3 mx-4 justify-center">
                                 {role === 'admin' ? adminNav : userNav}
                             </div>
@@ -73,7 +73,7 @@ const SideBar = () => {
                 </div>
             </div>
             <div className='h-screen fixed lg:w-[300px] hidden bg-black lg:flex flex-col items-center'>
-                <img src="/src/assets/LogoWhite.png" alt="Rent Loft" className='w-10/12 mt-4' />
+                <img src="/assets/LogoWhite.png" alt="Rent Loft" className='w-10/12 mt-4' />
                 <div id="sidebar" className="flex flex-col gap-3 mx-4 justify-center">
                     {role === 'admin' ? adminNav : userNav}
                 </div>

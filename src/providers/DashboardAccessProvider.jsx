@@ -31,7 +31,7 @@ const DashboardAccessProvider = ({ children }) => {
     return (
       <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
         <img
-          src="/src/assets/favicon.png"
+          src="/assets/favicon.png"
           alt="Loading..."
           className="w-36 h-36 border border-white rounded-3xl animate-ping"
         />

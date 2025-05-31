@@ -1,5 +1,12 @@
-Admin email: programming-hero@rentloft.surge.sh
-Admin password: Jhankar Mahbub
-Front-end Live Site Link: rentloft.surge.sh
-Client Side Github Repository Link: https://github.com/Rushberry/RentLoft_CLIENT
-Server Side Github Repository Link: https://github.com/Rushberry/RentLoft_SERVER
+🔐 Admin Credentials
+📧 Email: programming-hero@rentloft.surge.sh
+🔑 Password: Jhankar Mahbub
+
+🌐 Front-end Live Site Link
+🚀 https://rentloft.surge.sh
+
+💻 Client Side GitHub Repository
+📁 https://github.com/Rushberry/RentLoft_CLIENT
+
+🛠️ Server Side GitHub Repository
+🔧 https://github.com/Rushberry/RentLoft_SERVER
