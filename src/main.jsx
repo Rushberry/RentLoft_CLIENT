@@ -21,7 +21,6 @@ import {
 import UserDashboard from './pages/Dashboards/UserDashboard.jsx';
 import AdminDashboard from './pages/Dashboards/AdminDashboard.jsx';
 import MemberDashboard from './pages/Dashboards/MemberDashboard.jsx';
-import DashboardAccessProvider from './providers/DashboardAccessProvider.jsx';
 import Announcement from './pages/Dashboards/User Dashboard/Announcement.jsx';
 import MyProfile from './pages/Dashboards/User Dashboard/MyProfile.jsx';
 import AdminProfile from './pages/Dashboards/Admin Dashboard/AdminProfile.jsx';
@@ -29,6 +28,9 @@ import MakeAnnouncement from './pages/Dashboards/Admin Dashboard/MakeAnnouncemen
 import ManageMembers from './pages/Dashboards/Admin Dashboard/ManageMembers.jsx';
 import AgreementRequests from './pages/Dashboards/Admin Dashboard/AgreementRequests.jsx';
 import ManageCoupons from './pages/Dashboards/Admin Dashboard/ManageCoupons.jsx';
+import MakePayment from './pages/Dashboards/Member Dashboard/MakePayment.jsx';
+import Payment from './pages/Dashboards/Member Dashboard/Payment.jsx';
+import PaymentHistory from './pages/Dashboards/Member Dashboard/PaymentHistory.jsx';
 
 const queryClient = new QueryClient()
 
@@ -76,26 +78,38 @@ const router = createBrowserRouter([
         element: <MyProfile></MyProfile>
       },
       // Members
+      {
+        path: 'makePayment',
+        element: <MemberDashboard><MakePayment></MakePayment></MemberDashboard>
+      },
+      {
+        path: 'makePayment/payment',
+        element: <MemberDashboard><Payment></Payment></MemberDashboard>
+      },
+      {
+        path: 'paymentHistory',
+        element: <MemberDashboard><PaymentHistory></PaymentHistory></MemberDashboard>
+      },
       // Admins
       {
         path: 'adminProfile',
-        element: <AdminProfile></AdminProfile>
+        element: <AdminDashboard><AdminProfile></AdminProfile></AdminDashboard>
       },
       {
         path: 'manageMembers',
-        element: <ManageMembers></ManageMembers>
+        element: <AdminDashboard><ManageMembers></ManageMembers></AdminDashboard>
       },
       {
         path: 'makeAnnouncement',
-        element: <MakeAnnouncement></MakeAnnouncement>
+        element: <AdminDashboard><MakeAnnouncement></MakeAnnouncement></AdminDashboard>
       },
       {
         path: 'agreementRequests',
-        element: <AgreementRequests></AgreementRequests>
+        element: <AdminDashboard><AgreementRequests></AgreementRequests></AdminDashboard>
       },
       {
         path: 'manageCoupons',
-        element: <ManageCoupons></ManageCoupons>
+        element: <AdminDashboard><ManageCoupons></ManageCoupons></AdminDashboard>
       }
     ]
   }
