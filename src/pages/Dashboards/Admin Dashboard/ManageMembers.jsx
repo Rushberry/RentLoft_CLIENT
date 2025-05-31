@@ -28,7 +28,7 @@ const ManageMembers = () => {
         const data = { email: e }
         axios.patch(`${import.meta.env.VITE_serverApiLink}/degradeMember`, data, {headers: {authorization: localStorage.getItem('access-token')}})
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 toast.success(`Removed Member`, {
                     position: "top-right",
                     autoClose: 2000,

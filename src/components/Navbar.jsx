@@ -19,7 +19,7 @@ const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext)
 
     const handleSignOut = () => {
-        console.log(user)
+        // console.log(user)
         signOutUser()
         navigate('/')
     }

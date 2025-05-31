@@ -21,11 +21,11 @@ const Register = () => {
         const photo = e.target.photo.value;
         const name = e.target.name.value;
         const userInDB = {name, email, photoURL: photo, role: 'user' }
-        // console.log(userInDB)
+        // // console.log(userInDB)
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
         if (!passwordRegex.test(password)) {
             setError('Password must have at least 1 uppercase letter, 1 lowercase letter, and be at least 6 characters long.');
-            //console.log(error)
+            //// console.log(error)
             return;
         }
         createUser(email, password)
@@ -39,7 +39,7 @@ const Register = () => {
                         setUser((prev) => {
                             return { ...prev, displayName: name, photoURL: photo }
                         })
-                        axios.post(`${import.meta.env.VITE_serverApiLink}/addUser`, userInDB).then(res => console.log(res.data))
+                        axios.post(`${import.meta.env.VITE_serverApiLink}/addUser`, userInDB).then(res => // console.log(res.data))
                         toast.success('Registered Successfully!', {
                             position: "top-right",
                             autoClose: 2000,
@@ -65,7 +65,7 @@ const Register = () => {
             .then(result => {
                 setUser(result.user)
                 const userGInDB = {name: result?.user?.displayName, email: result?.user?.email, photoURL: result?.user?.photoURL, role: 'user' }
-                axios.post(`${import.meta.env.VITE_serverApiLink}/addUser`, userGInDB).then(res => console.log(res.data))
+                axios.post(`${import.meta.env.VITE_serverApiLink}/addUser`, userGInDB).then(res => // console.log(res.data))
                 toast.success('Registered Successfully!', {
                     position: "top-right",
                     autoClose: 2000,

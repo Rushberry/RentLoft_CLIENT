@@ -39,7 +39,7 @@ const Login = () => {
                 
             })
             .catch(err => {
-                // //console.log(err)
+                // //// console.log(err)
                 setError(err.message)
             })
     }
@@ -48,7 +48,7 @@ const Login = () => {
         signInWithGoogle()
             .then(result => {
                 setUser(result.user)
-                // //console.log(result)
+                // //// console.log(result)
                 toast.success('Login Successful!', {
                     position: "top-right",
                     autoClose: 2000,
