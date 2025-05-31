@@ -74,7 +74,7 @@ const MakePayment = () => {
                     <option>November</option>
                     <option>December</option>
                 </select>
-                <input type="submit" value="Pay" className='text-white mb-10 bg-black w-full rounded-md py-2 text-xl cursor-pointer hover:text-black hover:bg-white border border-black font-medium' />
+                <input type="submit" value="Pay" className='text-white mb-10 bg-black w-full rounded-md py-2 text-xl cursor-pointer border border-black font-medium' />
             </form>
         </div>
     )
