@@ -45,7 +45,7 @@ const ManageMembers = () => {
             <h1 className='lg:text-4xl md:text-3xl text-xl text-center font-medium flex justify-center items-center gap-2 mt-9'> <FaCircleUser /> Manage Members</h1>
             <ToastContainer></ToastContainer>
 
-            <div className="overflow-x-auto overflow-y-auto mt-2 rounded-box border border-black bg-base-100">
+            <div className="overflow-x-auto overflow-y-auto mt-8 rounded-box border border-black bg-base-100">
                 <table className="table">
                     {/* head */}
                     <thead>
