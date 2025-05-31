@@ -19,7 +19,7 @@ import { AuthContext } from '../providers/AuthProvider';
 
 
 const Apartments = () => {
-    const { data: apartments = [], isSuccess } = useQuery({
+    const { data: apartments = [], refetch, isSuccess } = useQuery({
         queryKey: ['apartments'],
         queryFn: async () => {
             const response = await fetch(`${import.meta.env.VITE_serverApiLink}/apartments`);
@@ -130,9 +130,10 @@ const Apartments = () => {
                 apartmentNo: e?.apartmentNo,
                 rent: e?.rent,
                 status: "pending",
-                requestDate: formattedDate
+                requestDate: formattedDate,
+                apartmentId: e?._id
             }
-            axios.post(`${import.meta.env.VITE_serverApiLink}/apartmentRent`, data)
+            axios.post(`${import.meta.env.VITE_serverApiLink}/apartmentRent`, data, {headers: {authorization: localStorage.getItem('access-token')}})
                 .then(res => {
                     toast.success(`${res.data.message}`, {
                         position: "top-right",
@@ -142,6 +143,7 @@ const Apartments = () => {
                         pauseOnHover: false,
                         theme: "light",
                     });
+                    refetch()
                 })
 
         } else {
@@ -177,7 +179,7 @@ const Apartments = () => {
                             <h3 className='text-md flex gap-1 justify-center items-center'><span className='flex gap-1 justify-center items-center font-medium'><SiCodeblocks />Apartment No:</span> {apartment?.apartmentNo}</h3>
                             <h3 className='text-md flex gap-0.5 justify-center items-center'><span className='flex gap-0.5 justify-center items-center font-medium'><TbCurrencyTaka />Rent:</span> {apartment?.rent}</h3>
                         </div>
-                        <button onClick={() => { handleAgreement(apartment) }} className='w-full bg-black rounded-lg text-white font-medium hover:bg-white hover:text-black border-black border px-4 py-2'>Apply for Agreement</button>
+                        <button onClick={() => { handleAgreement(apartment) }} className={`w-full bg-black rounded-lg text-white font-medium hover:bg-white hover:text-black border-black border px-4 py-2 ${apartment?.availability === true ? '' : 'cursor-not-allowed pointer-events-none'}`}>{apartment?.availability === true ? 'Apply for Agreement': 'Already Taken'}</button>
                     </div>)
                 }
             </div>

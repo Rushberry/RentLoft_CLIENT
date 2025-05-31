@@ -38,20 +38,7 @@ const AuthProvider = ({ children }) => {
     }
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser)
-            if(currentUser?.email){
-                const user = {email: currentUser.email}
-                axios.post('https://aura-drive.vercel.app/jwt', user, {withCredentials: true})
-                .then(res => {
-                    setLoader(false)
-                    console.log('Login >', res.data)})
-            }
-            else{
-                axios.post('https://aura-drive.vercel.app/logout', {}, {withCredentials: true})
-                .then(res => {
-                    setLoader(false)
-                    console.log('Logout >', res.data)})
-            }
+           
         })
 
         return () => {

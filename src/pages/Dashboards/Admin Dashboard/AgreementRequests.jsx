@@ -14,7 +14,7 @@ const AgreementRequests = () => {
     const { data: apartmentRequests = [], refetch } = useQuery({
         queryKey: ['apartmentRequests'],
         queryFn: async () => {
-            const response = await fetch(`${import.meta.env.VITE_serverApiLink}/apartmentRent`);
+            const response = await fetch(`${import.meta.env.VITE_serverApiLink}/apartmentRent`, {headers: {authorization: localStorage.getItem('access-token')}});
             toast.success('Loaded Agreement Requests', {
                 position: "top-right",
                 autoClose: 2000,
@@ -26,9 +26,9 @@ const AgreementRequests = () => {
             return await response.json();
         },
     })
-    const handleReject = e => {
-        const data = { id: e }
-        axios.patch(`${import.meta.env.VITE_serverApiLink}/reject`, data)
+    const handleReject = (e, i) => {
+        const data = { id: e, apartmentId: i }
+        axios.patch(`${import.meta.env.VITE_serverApiLink}/reject`, data, {headers: {authorization: localStorage.getItem('access-token')}})
             .then(res => {
                 toast.success(`${res.data.message}`, {
                     position: "top-right",
@@ -41,12 +41,12 @@ const AgreementRequests = () => {
                 refetch()
             })
     }
-    const handleAccept = (id, e) => {
+    const handleAccept = (id, e, i) => {
         const today = new Date();
 
         const formattedDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
-        const data = { id: id, email: e, date:  formattedDate}
-        axios.patch(`${import.meta.env.VITE_serverApiLink}/accept`, data)
+        const data = { id: id, email: e, date: formattedDate, apartmentId: i }
+        axios.patch(`${import.meta.env.VITE_serverApiLink}/accept`, data, {headers: {authorization: localStorage.getItem('access-token')}})
             .then(res => {
                 toast.success(`${res.data.message}`, {
                     position: "top-right",
@@ -80,8 +80,8 @@ const AgreementRequests = () => {
                             <p className='flex gap-1 justify-center items-center'><TbCurrencyTaka />Rent: {request?.rent}</p>
                         </div>
                         <div className="flex gap-2 justify-between w-full">
-                            <button className='w-full bg-green-400 px-3 py-1 text-green-900 rounded-md' onClick={() => handleAccept(request?._id, request?.email)}>Accept</button>
-                            <button className='w-full bg-red-400 px-3 py-1 text-red-900 rounded-md' onClick={() => handleReject(request?._id)}>Reject</button>
+                            <button className='w-full bg-green-400 px-3 py-1 text-green-900 rounded-md' onClick={() => handleAccept(request?._id, request?.email, request?.apartmentId)}>Accept</button>
+                            <button className='w-full bg-red-400 px-3 py-1 text-red-900 rounded-md' onClick={() => handleReject(request?._id, request?.apartmentId)}>Reject</button>
                         </div>
                     </div>)
                 }

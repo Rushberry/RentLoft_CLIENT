@@ -7,7 +7,7 @@ const Announcement = () => {
     const { data: announcements = [] } = useQuery({
         queryKey: ['announcements'],
         queryFn: async () => {
-            const response = await fetch(`${import.meta.env.VITE_serverApiLink}/announcements`);
+            const response = await fetch(`${import.meta.env.VITE_serverApiLink}/announcements`, {headers: {authorization: localStorage.getItem('access-token')}});
             toast.success('Loaded All Announcements', {
                 position: "top-right",
                 autoClose: 2000,

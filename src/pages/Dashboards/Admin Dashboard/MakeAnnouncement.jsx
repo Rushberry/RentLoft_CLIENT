@@ -10,7 +10,7 @@ const MakeAnnouncement = () => {
         const title = form.title.value;
         const description = form.description.value;
         const data = { title, description }
-        axios.post(`${import.meta.env.VITE_serverApiLink}/announcements`, data)
+        axios.post(`${import.meta.env.VITE_serverApiLink}/announcements`, data, {headers: {authorization: localStorage.getItem('access-token')}})
             .then(res => {
                 console.log(res.data)
                 if (!toastShownRef.current) {

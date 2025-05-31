@@ -23,7 +23,12 @@ const ManageCoupons = () => {
     })
 
     const handleActiveCoupon = e => {
-        axios.patch(`${import.meta.env.VITE_serverApiLink}/updateCouponActive/${e}`)
+        axios.patch(`${import.meta.env.VITE_serverApiLink}/updateCouponActive/${e}`, {},
+    {
+        headers: {
+            authorization: localStorage.getItem('access-token')
+        }
+    })
             .then(res => {
                 // console.log(res.data)
                 toast.success(`Coupon Is Available Now`, {
@@ -38,7 +43,12 @@ const ManageCoupons = () => {
             })
     }
     const handleInactiveCoupon = e => {
-        axios.patch(`${import.meta.env.VITE_serverApiLink}/updateCouponInactive/${e}`)
+        axios.patch(`${import.meta.env.VITE_serverApiLink}/updateCouponInactive/${e}`, {}, 
+    {
+        headers: {
+            authorization: localStorage.getItem('access-token')
+        }
+    })
             .then(res => {
                 // console.log(res.data)
                 toast.success(`Coupon Is Unavailable Now`, {
@@ -61,7 +71,12 @@ const ManageCoupons = () => {
         const description = form.description.value;
         const status = "active"
         const data = { description, code, discount, status }
-        axios.post(`${import.meta.env.VITE_serverApiLink}/coupons`, data)
+        axios.post(`${import.meta.env.VITE_serverApiLink}/coupons`, data,
+    {
+        headers: {
+            authorization: localStorage.getItem('access-token')
+        }
+    })
             .then(res => {
                 console.log(res.data)
                 toast.success(`Added Coupon Successfully`, {

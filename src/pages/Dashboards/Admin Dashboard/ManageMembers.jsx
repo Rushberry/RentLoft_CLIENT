@@ -11,7 +11,7 @@ const ManageMembers = () => {
     const { data: members = [], refetch } = useQuery({
         queryKey: ['members'],
         queryFn: async () => {
-            const response = await fetch(`${import.meta.env.VITE_serverApiLink}/members`);
+            const response = await fetch(`${import.meta.env.VITE_serverApiLink}/members`, {headers: {authorization: localStorage.getItem('access-token')}});
             toast.success('Loaded All Members', {
                 position: "top-right",
                 autoClose: 2000,
@@ -26,7 +26,7 @@ const ManageMembers = () => {
 
     const handleRemove = e => {
         const data = { email: e }
-        axios.patch(`${import.meta.env.VITE_serverApiLink}/degradeMember`, data)
+        axios.patch(`${import.meta.env.VITE_serverApiLink}/degradeMember`, data, {headers: {authorization: localStorage.getItem('access-token')}})
             .then(res => {
                 console.log(res.data)
                 toast.success(`Removed Member`, {
