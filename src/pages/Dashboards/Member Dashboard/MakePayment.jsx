@@ -11,23 +11,23 @@ const MakePayment = () => {
     const toastShownRef2 = useRef(false);
     const navigate = useNavigate()
     useEffect(()=> {setMonth(new Date().toLocaleString('default', { month: 'long' }))}, [])
-    // console.log(month)
+    console.log(month)
     const handlePay = e => {
         e.preventDefault()
         setRent(info?.rent)
         navigate('/dashboard/makePayment/payment')
     }
     const handleMonth = e => {
-        // // console.log(e)
+        // console.log(e)
         setMonth(e.target.value)
-        // console.log(month)
+        console.log(month)
     }
 
     useEffect(() => {
         const data = { email: user.email };
         axios.post(`${import.meta.env.VITE_serverApiLink}/apartmentRentInfo`, data, { headers: { authorization: localStorage.getItem('access-token') } })
             .then(res => {
-                // // console.log(res.data)
+                // console.log(res.data)
                 setInfo(res.data)
                 if (!toastShownRef2.current) {
                     toast.success(`Loaded Details`, {

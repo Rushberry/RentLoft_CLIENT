@@ -13,7 +13,7 @@ const Payment = () => {
     const { rent, setRent, month } = useContext(AuthContext)
     const [applied, setApplied] = useState(false)
     const navigate = useNavigate()
-    // console.log(rent)
+    console.log(rent)
     useEffect(() => {
         if (rent == null) {
             navigate('/dashboard/makePayment')
@@ -26,7 +26,7 @@ const Payment = () => {
         const data = { code: coupon }
         axios.post(`${import.meta.env.VITE_serverApiLink}/checkCoupon`, data, { headers: { authorization: localStorage.getItem('access-token') } })
             .then(res => {
-                // console.log(res.data)
+                console.log(res.data)
                 toast.success(`${res.data.message}`, {
                     position: "top-right",
                     autoClose: 2000,

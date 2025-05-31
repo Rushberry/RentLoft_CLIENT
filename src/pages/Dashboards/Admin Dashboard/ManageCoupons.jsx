@@ -30,7 +30,7 @@ const ManageCoupons = () => {
         }
     })
             .then(res => {
-                // // console.log(res.data)
+                // console.log(res.data)
                 toast.success(`Coupon Is Available Now`, {
                     position: "top-right",
                     autoClose: 2000,
@@ -50,7 +50,7 @@ const ManageCoupons = () => {
         }
     })
             .then(res => {
-                // // console.log(res.data)
+                // console.log(res.data)
                 toast.success(`Coupon Is Unavailable Now`, {
                     position: "top-right",
                     autoClose: 2000,
@@ -78,7 +78,7 @@ const ManageCoupons = () => {
         }
     })
             .then(res => {
-                // console.log(res.data)
+                console.log(res.data)
                 toast.success(`Added Coupon Successfully`, {
                     position: "top-right",
                     autoClose: 2000,

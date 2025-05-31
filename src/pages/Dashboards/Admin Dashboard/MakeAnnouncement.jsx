@@ -12,7 +12,7 @@ const MakeAnnouncement = () => {
         const data = { title, description }
         axios.post(`${import.meta.env.VITE_serverApiLink}/announcements`, data, {headers: {authorization: localStorage.getItem('access-token')}})
             .then(res => {
-                // console.log(res.data)
+                console.log(res.data)
                 if (!toastShownRef.current) {
                     toast.success(`Announcement Done`, {
                         position: "top-right",

@@ -39,7 +39,7 @@ const MyProfile = () => {
             const data = { email: user.email };
             axios.post(`${import.meta.env.VITE_serverApiLink}/apartmentRentInfo`, data, {headers: {authorization: localStorage.getItem('access-token')}})
                 .then(res => {
-                    // // console.log(res.data)
+                    // console.log(res.data)
                     setInfo(res.data)
                     if (!toastShownRef2.current) {
                         toast.success(`Loaded ${role} Details`, {
